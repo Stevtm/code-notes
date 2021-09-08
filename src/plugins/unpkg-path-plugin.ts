@@ -11,10 +11,10 @@ export const unpkgPathPlugin = () => {
 					return { path: args.path, namespace: "a" };
 				}
 
-				if (args.path.includes("./") || args.path.include("../")) {
+				if (args.path.includes("./") || args.path.includes("../")) {
 					return {
 						namespace: "a",
-						path: new URL(args.path, args.importer + "/"),
+						path: new URL(args.path, args.importer + "/").href,
 					};
 				}
 
